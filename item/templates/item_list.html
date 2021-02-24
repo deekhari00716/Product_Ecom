@@ -1,0 +1,18 @@
+<h1>Category</h1>
+<ul>
+  <li><a href="{% url 'item:item_list' %}">All Items</a></li>
+  {% for c in categories %}
+      <li><a href="{{ c.get_absolute_url }}">{{ c.name }}</a></li>
+  {% endfor %}
+</ul>
+<br><br>
+
+<h1>{% if category %}{{category.name}}</h1>
+    {% else %} ITEMS
+    {% endif %}
+    {% for i in item %}
+      <h2>{{i.title}}</h2>
+      <h2>{{i.price}}</h2>
+      <img src="{{ i.image.url }}">
+      <hr>
+    {% endfor %}
